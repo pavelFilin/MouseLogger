@@ -4,11 +4,12 @@ files = os.listdir('.')
 logs = [i for i in files if i.endswith('.csv')]
 
 for log in logs:
-    print(log)
+    print("files: ", end="")
+    print("\t{0}".format(log))
 
+print()
 right = 0
 left = 0
-
 print('1')
 for log in logs:
     fileHandler = open (log, "r")
@@ -21,5 +22,7 @@ for log in logs:
             right = right + 1
     fileHandler.close()
 
-print('right {0}', str(right))
-print('left {0}', str(left))
+print('right\t{0}'.format(right))
+print('left\t {0}'.format(left))
+print('all\t{0}'.format(left+right))
+input('....')
