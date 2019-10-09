@@ -1,6 +1,12 @@
 import os
+from pathlib import Path
 
 files = os.listdir('.')
+
+path=str(os.path.dirname(os.path.abspath(__file__))).split('\\')
+print(path[len(path)-1])
+
+
 logs = [i for i in files if i.endswith('.csv')]
 
 for log in logs:
@@ -8,9 +14,11 @@ for log in logs:
     print("\t{0}".format(log))
 
 print()
+
+
 right = 0
 left = 0
-print('1')
+
 for log in logs:
     fileHandler = open (log, "r")
     listOfLines = fileHandler.readlines()
@@ -22,7 +30,7 @@ for log in logs:
             right = right + 1
     fileHandler.close()
 
-print('right\t{0}'.format(right))
 print('left\t {0}'.format(left))
+print('right\t{0}'.format(right))
 print('all\t{0}'.format(left+right))
 input('....')
